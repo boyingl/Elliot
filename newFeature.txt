@@ -1,0 +1,58 @@
+my experience with Elliot:
+my experience is that I can set up a meeting with my friends at a mutually available time easily
+I really like that fact that Elliot can help me figure out when without much overhead
+
+
+new feature: 
+allow meeting initializer to choose a location to meet up
+machine learning: 
+make suggestions by learning from users' choice of tags & restaurants AND PHOTO STREAM
+(eg. many people take pictures of their food. if they have a lot of photos of sushi, one can conclude they probably like sushi)
+1. user initialize an event
+2. choose a place (can be skipped)
+3. send invite to friend
+4. the other user confirm or decline
+
+reason:
+it is very intuitive for people to ask "where" once they set up a meeting
+it will be nice for Elliot to facilitate that
+without this feature, users will have to contact each other through other means
+back & forth, which defeats the purpose of Elliot
+
+
+implementation (basic):
+1. use Yelp API to obtain local facilities based on the event 
+(eg, lunch -> find restaurants; coffee -> coffee shop)
+2. filter internally based on if the facility is open during the meeting time
+3. present the options to user
+4. user can filter them using
+price, style(Chinese food, French food, etc.), hot&new
+5. send invite to the other user
+
+machine learning integration:
+after implementing the basic feature, integrate machine learning to optimize the experience
+based on users' choice of tag/ restaurants, improve the suggestion 
+1. classify the tags & learn from user what tags are frequently set 
+based on the data, default set those tags for initial recommandation
+eg. if user tags Chinese food a lot, set Chinese food tag as default
+
+2. classify the restaurants
+put the restaurants that are chosen by user often at the top
+
+3. photo stream to find preference
+obtain user permission to access user photo streams
+many people takes pictures of their food
+based on the food in the photo stream, learn about user's preference
+take into consideration of that when making suggestions
+
+
+feature acceptance criteria:
+1. choices show up after setting time
+2. choosing places can be skipped
+3. places are filtered so all the options are within 10km range & open during meeting time
+4. tags filter available for user to choose
+5. machine learning: suggestions are made based on user's frequently set tags & frequently chosen places & photes
+
+
+business benefit: 
+with places suggestions, can have sponsored recommendations
